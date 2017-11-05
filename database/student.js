@@ -5,7 +5,7 @@ const salt = bcrypt.genSaltSync(10);
 
 const Table = 'student';
 
-function getAllStudents(req, res, next) {
+function APIgetAllStudents(req, res, next) {
     db.any('select * from '+Table)
       .then(function (data) {
         res.status(200)
@@ -14,6 +14,17 @@ function getAllStudents(req, res, next) {
             data: data,
             message: 'Retrieved ALL students'
           });
+      })
+      .catch(function (err) {
+          console.log(err);
+        return next(err);
+      });
+  }
+
+  function getAllStudents(req, res, next) {
+    db.any('select * from '+Table)
+      .then(function (data) {
+        res.render('students', { title: 'Student', students: data });
       })
       .catch(function (err) {
           console.log(err);

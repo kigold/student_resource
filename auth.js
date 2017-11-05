@@ -56,6 +56,8 @@ function authUser(req, res, next) {
       });
   }
 
+  
+
 router.use(function authMiddleware(req, res, next) {
   //check header for token
   var token = req.body.token || req.query.token || req.headers['x-access-token'];
