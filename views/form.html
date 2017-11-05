@@ -1,0 +1,62 @@
+<html>
+    <title>Create Student</title>
+    <body>
+        <h2>Create New Student</h2>
+        <form action="http://localhost:3001/api/createStudent"
+        method="post"
+        >
+            Name <input name="name" placeholder="Name"/>
+            Email <input name="email" placeholder="Email"/>
+            Password <input type="password" name="password" placeholder="password"/>
+            Occupation <input name="occupation" placeholder="occupation"/>
+            Gender <input name="gender" placeholder="gender"/>
+            Dob <input name="dob" placeholder="Date of Birth"/>
+            <input type="submit" value="create"/>
+        </form>
+        <h2> Update Student</h2>
+        <form action="http://localhost:3001/api/updateStudent/1"
+        method="post"
+        >
+            Name <input name="name" placeholder="Name"/>
+            Email <input name="email" placeholder="Email"/>
+            Password <input type="password" name="password" placeholder="password"/>
+            Occupation <input name="occupation" placeholder="occupation"/>
+            Gender <input name="gender" placeholder="gender"/>
+            Dob <input name="dob" placeholder="Date of Birth"/>
+            <input type="submit" value="update"/>
+        </form>
+
+
+        <h2>Create New Resource</h2>
+        <form action="http://localhost:3001/api/createResource"
+        method="post"
+        >
+            Title <input name="title" placeholder="Title"/>
+            Content <input name="content" placeholder="content"/>
+            Created <input name="created" placeholder="Create"/>
+            Author <input name="author" placeholder="Author"/>
+            <input type="submit" value="create"/>
+        </form>
+
+        <h2>Update Resource</h2>
+        <form action="http://localhost:3001/api/updateResource/2"
+        method="post"
+        >
+            Title <input name="title" placeholder="Title"/>
+            Content <input name="content" placeholder="content"/>
+            Created <input name="created" placeholder="Create"/>
+            Author <input name="author" placeholder="Author"/>
+            <input type="submit" value="update"/>
+        </form>
+
+        <h2>Login</h2>
+        <form action="http://localhost:3001/auth/login/1"
+        method="post"
+        >
+            name <input name="name" placeholder="name"/>
+            password <input name="password" placeholder="password"/>
+            
+            <input type="submit" value="update"/>
+        </form>
+    </body>
+</html>
