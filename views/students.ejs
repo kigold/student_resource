@@ -11,7 +11,10 @@
   <link rel="stylesheet" type="text/css" href="../dist/semantic.min.css">
   <script type="text/javascript" src="../assets/library/jquery.min.js"></script>
   <script type="text/javascript" src="../dist/semantic.min.js"></script>
+
+  <script type="text/javascript" src="../javascripts/authUser.js"></script>
   <script type="text/javascript" src="../javascripts/signup.js"></script>
+  <script type="text/javascript" src="../javascripts/signout.js"></script>
 
   <style type="text/css">
   body {
@@ -35,19 +38,7 @@
 </head>
 <body>
 
-  <div class="ui teal fixed inverted menu">
-    <div class="ui container">
-      <a href="#" class="header item">
-        <img class="logo" src="assets/images/logo.png">
-        Student Resource
-      </a>
-      <a href="#" class="item">Home</a>
-      <div class="right item">
-          <a class="ui inverted button" href="/auth/login">Log in</a>
-          <a class="ui inverted button" href="/auth/signup">Sign Up</a>
-        </div>
-    </div>
-  </div>
+  <% include ./partials/navbar %>
 
   <div class="ui main text container">
     <h1 class="ui header">Students</h1>
@@ -66,7 +57,7 @@
                     <div class="content">
                         <a class="header" href="/student/<%= students[i].id %>"><%= students[i].name %></a>
                         <div class="meta">
-                        <span class="date">Occupation: <%= students[i].email %></span>
+                        <span class="date">Email: <%= students[i].email %></span>
                         </div>
                         <div class="description">
                     <%= students[i].occupation %>

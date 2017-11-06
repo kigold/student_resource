@@ -16,6 +16,7 @@ router.delete('/student/:id', db.removeStudent);
 
 router.get('/resource', db.getAllResource);
 router.get('/resource/:id', db.getSingleResource);
+router.get('/create_resource', db.createResourceForm);
 router.post('/createResource', db.createResource);
 router.post('/updateResource/:id', db.updateResource);
 router.delete('/resource/:id', db.removeResource);

@@ -1,8 +1,9 @@
 const db = require('../database');
 
 const Table = 'resource';
-function getAllResource(req, res, next) {
-    db.any('select * from '+Table)
+
+function APIgetAllResource(req, res, next) {
+    db.any('select '+Table+'.id, '+Table+'.title, '+Table+'.content, '+Table+'.created, '+Table+'.author, student.name, student.gender  from '+Table+  ' join student on student.id='+Table+'.author')
       .then(function (data) {
         res.status(200)
           .json({
@@ -17,9 +18,20 @@ function getAllResource(req, res, next) {
       });
   }
 
-  function getSingleResource(req, res, next) {
+  function getAllResource(req, res, next) {
+    db.any('select '+Table+'.id, '+Table+'.title, '+Table+'.content, '+Table+'.created, '+Table+'.author, student.name, student.gender  from '+Table+  ' join student on student.id='+Table+'.author')
+      .then(function (data) {
+        res.render('resource', { title: 'Resource', resource: data });
+      })
+      .catch(function (err) {
+          console.log(err);
+        return next(err);
+      });
+  }
+
+  function APIgetSingleResource(req, res, next) {
     var id = parseInt(req.params.id)
-    db.any('select * from '+Table+ ' where id = $1', id)
+    db.any('select '+Table+'.id, '+Table+'.title, '+Table+'.content, '+Table+'.created, '+Table+'.author, student.name, student.gender  from '+Table+  ' join student on student.id='+Table+'.author where '+Table+'.id = $1', id)
       .then(function (data) {
         res.status(200)
           .json({
@@ -33,6 +45,23 @@ function getAllResource(req, res, next) {
         return next(err);
       });
   
+    }
+
+    function getSingleResource(req, res, next) {
+      var id = parseInt(req.params.id)
+      db.any('select '+Table+'.id, '+Table+'.title, '+Table+'.content, '+Table+'.created, '+Table+'.author, student.name, student.gender  from '+Table+  ' join student on student.id='+Table+'.author where '+Table+'.id = $1', id)
+        .then(function (data) {
+          res.render('resourceitem', { title: 'Resource', resource: data[0] });
+        })
+        .catch(function (err) {
+            console.log(err);
+          return next(err);
+        });
+    
+      }
+
+    function createResourceForm(req, res, next) {
+      res.render('create_resource', { title: 'Create New Resource'});
     }
 
     function createResource(req, res, next) {
@@ -89,6 +118,7 @@ function getAllResource(req, res, next) {
   module.exports = {
       getAllResource:getAllResource,
       getSingleResource:getSingleResource,
+      createResourceForm:createResourceForm,
       createResource:createResource,
       updateResource:updateResource,
       removeResource:removeResource

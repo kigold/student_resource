@@ -11,6 +11,7 @@ module.exports = {
 
   getAllResource: resource.getAllResource,
   getSingleResource: resource.getSingleResource,
+  createResourceForm: resource.createResourceForm,
   createResource: resource.createResource,
   updateResource: resource.updateResource,
   removeResource: resource.removeResource

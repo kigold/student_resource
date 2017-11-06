@@ -1,4 +1,6 @@
 $(document).ready(function() {
+    //if token is in storage redirect to students
+    //window.location = "/students";
     console.log("Login form loaded");
     console.log(window.localStorage.getItem('name'));
     var mForm = $('#login_form');

@@ -32,7 +32,7 @@ function APIgetAllStudents(req, res, next) {
       });
   }
 
-  function getSingleStudent(req, res, next) {
+  function APIgetSingleStudent(req, res, next) {
     var id = parseInt(req.params.id)
     db.any('select * from '+Table+ ' where id = $1', id)
       .then(function (data) {
@@ -42,6 +42,18 @@ function APIgetAllStudents(req, res, next) {
             data: data,
             message: 'Retrieved single students'
           });
+      })
+      .catch(function (err) {
+          console.log(err);
+        return next(err);
+      });
+  }
+
+  function getSingleStudent(req, res, next) {
+    var id = parseInt(req.params.id)
+    db.any('select * from '+Table+ ' where id = $1', id)
+      .then(function (data) {
+        res.render('student', { title: 'Student', student: data[0] });
       })
       .catch(function (err) {
           console.log(err);
