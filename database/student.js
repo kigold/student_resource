@@ -114,6 +114,10 @@ function updateStudent(req, res, next) {
         return next(err);
       });
   }
+
+  function createdb(req, res, next) {
+    return "db created";
+  }
   
   
 
@@ -123,6 +127,7 @@ function updateStudent(req, res, next) {
       getSingleStudent:getSingleStudent,
       createStudent:createStudent,
       updateStudent:updateStudent,
-      removeStudent:removeStudent
+      removeStudent:removeStudent,
+      createdb:createdb
 
   }

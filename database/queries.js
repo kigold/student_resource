@@ -14,5 +14,7 @@ module.exports = {
   createResourceForm: resource.createResourceForm,
   createResource: resource.createResource,
   updateResource: resource.updateResource,
-  removeResource: resource.removeResource
+  removeResource: resource.removeResource,
+
+  createdb:createdb
 };
