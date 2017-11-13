@@ -7,18 +7,18 @@ $(document).ready(function() {
         $('#delete_item').hide();
         //show tinymce in editor mode
     }
-    var mForm = $('#delete_item');
-    mForm.click(function(){
+    var mDel = $('#delete_item');
+    mDel.click(function(){
         console.log("deleting");
         var mData = {};
         mData.id = resourceId;
         console.log(mData);
-        sendData(mData);
+        sendDelete(mData);
 
     });
 });
 
-function sendData(D) {
+function sendDelete(D) {
     console.log('sending data...');
     console.log(D);
     $.ajax({
