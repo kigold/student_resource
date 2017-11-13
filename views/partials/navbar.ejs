@@ -11,7 +11,14 @@
           <div class="right item">
               <a class="ui inverted button noAuth" href="/auth/login">Log in</a>
               <a class="ui inverted button noAuth" href="/auth/signup">Sign Up</a>
+              <div>
+                <a id="profile" class="ui inverted button auth" href=""><i class="user icon"></i></a>
+              </div>
               <button id="btn_signout" class="ui button auth">Sign Out</button>
             </div>
         </div>
+        <script>
+          var id = window.localStorage.getItem('userid');
+          document.getElementById("profile").setAttribute("href", "/student/"+id);
+        </script>
       </div>

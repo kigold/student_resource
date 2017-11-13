@@ -3,8 +3,8 @@ var router = express.Router();
 const auth = require('../auth');
 
 /* GET home page. */
-router.get('/lo', function(req, res, next) {
-  res.render('layout', { title: 'AuthIsh' });
+router.get('/page', function(req, res, next) {
+  res.render('page', { title: 'AuthIsh' });
 });
 
 router.get('/login', function(req, res, next) {

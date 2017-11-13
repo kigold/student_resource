@@ -32,6 +32,7 @@ function sendData(D) {
             window.localStorage.setItem('token', R.token);
             window.localStorage.setItem('userid', R.data[0].id);
             window.localStorage.setItem('name', R.data[0].name);
+            window.localStorage.setItem('email', R.data[0].email);
             //location.reload();
             window.location = "/students";
         },

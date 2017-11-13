@@ -99,8 +99,9 @@ function updateStudent(req, res, next) {
   }
 
   function removeStudent(req, res, next) {
-    var id = parseInt(req.params.id);
-    db.result('delete from '+Table+' where id = $1', id)
+    //var id = parseInt(req.params.id);
+    var email = req.params.email;
+    db.result('delete from '+Table+' where email = $1', email)
       .then(function (result) {
         /* jshint ignore:start */
         res.status(200)
@@ -114,10 +115,6 @@ function updateStudent(req, res, next) {
         return next(err);
       });
   }
-
-  function createdb(req, res, next) {
-    return "db created";
-  }
   
   
 
@@ -127,7 +124,6 @@ function updateStudent(req, res, next) {
       getSingleStudent:getSingleStudent,
       createStudent:createStudent,
       updateStudent:updateStudent,
-      removeStudent:removeStudent,
-      createdb:createdb
+      removeStudent:removeStudent
 
   }

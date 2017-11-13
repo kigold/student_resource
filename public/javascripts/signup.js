@@ -39,10 +39,12 @@ function sendData(D) {
         data : D,
         success: function(R){
             console.log(R);
-            alert(R);
+            alert("Signed up Successfuly, you can now login");
             //location.reload();
+            window.location = "/auth/login";
         },
         error:function(x,s,R){
+            console.log("d");
             console.log(R);
         },
     });    
