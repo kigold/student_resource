@@ -51,9 +51,10 @@ function APIgetAllResource(req, res, next) {
       var id = parseInt(req.params.id)
       db.any('select '+Table+'.id, '+Table+'.title, '+Table+'.content, '+Table+'.created, '+Table+'.author, student.name, student.gender  from '+Table+  ' join student on student.id='+Table+'.author where '+Table+'.id = $1', id)
         .then(function (data) {
-          res.render('resourceitem', { title: 'Resource', resource: data[0] });
+          res.render('resourceItem', { title: 'Resource', resource: data[0] });
         })
         .catch(function (err) {
+          console.log("########################################ERRROOR###############################################################");
             console.log(err);
           return next(err);
         });
@@ -82,9 +83,8 @@ function APIgetAllResource(req, res, next) {
       }
 
       function updateResource(req, res, next) {
-        var parameters = [req.body.title, req.body.content, req.body.created,
-            parseInt(req.body.author),  parseInt(req.params.id)]
-        db.none('update '+Table+' set title=$1, content=$2, created=$3, author=$4 where id=$5',
+        var parameters = [req.body.title, req.body.content, req.body.created, parseInt(req.params.id)]
+        db.none('update '+Table+' set title=$1, content=$2, created=$3 where id=$4',
           parameters)
           .then(function () {
             res.status(200)

@@ -22,10 +22,12 @@ function delUser(email) {
         //data: Qs,
         success: function(R){
             console.log(R);
+            var uEmail = window.localStorage.getItem('email');
             window.localStorage.removeItem('name');
             window.localStorage.removeItem('userid');
             window.localStorage.removeItem('token');
             window.localStorage.removeItem('email');
+            alert(uEmail, " account has been deleted");
             window.location = "/";
         },
         error:function(x,s,R){

@@ -13,7 +13,10 @@
   <script type="text/javascript" src="../dist/semantic.min.js"></script>
 
   <script type="text/javascript" src="../javascripts/authUser.js"></script>
+  <script type="text/javascript" src="../javascripts/tinymce/tinymce.min.js"></script>
   <script type="text/javascript" src="../javascripts/create_resource.js"></script>
+  <script type="text/javascript" src="../javascripts/edit_resource.js"></script>
+  <script type="text/javascript" src="../javascripts/delete_resource.js"></script>
   <script type="text/javascript" src="../javascripts/signout.js"></script>
 
   <style type="text/css">
@@ -42,10 +45,11 @@
 
   <div class="ui main text container">
     <h1 class="ui header"><%= title %></h1>
-            <script type="text/javascript" src="../javascripts/tinymce/tinymce.min.js"></script>
-            <script>tinymce.init({ mode:'exact',
-                    selector : 'textarea.editor'
-                 });</script>
+    <input type="hidden" name="authorId" id="authorId" value="<%= resource.author %>" />
+    <input type="hidden" name="resourceId" id="resourceId" value="<%= resource.id %>" />
+    <input type="hidden" name="resourceTitle" id="resourceTitle" value="<%= resource.title %>" />
+            
+           
         <div class="field">
             <label>Title</label>
             <h2><%= resource.title %></h2>
@@ -53,7 +57,9 @@
         <div class="field">
             <label>Content</label>
             
-            <textarea class= "editor" id="content" name="content"> <%= resource.content %></textarea>
+            <div><textarea class= "editor" id="content" name="content"> <%= resource.content %></textarea></div>
+            <button class="ui button teal" id="save_item"><i class="save icon"></i></button>
+            <button class="ui button red" id="delete_item"><i class="delete icon"></i></button>
         </div>
         
     
